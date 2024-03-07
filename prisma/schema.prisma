@@ -42,6 +42,7 @@ model EntryAnalysis {
   mood     String  @db.Text
   negative Boolean
   summary  String  @db.Text
+  subject  String
   color    String  @default("#0101fe") @db.Text
 
   @@unique([entryId])
