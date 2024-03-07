@@ -12,6 +12,7 @@ const getEntry = async ({ id }) => {
     },
   });
 };
+//test
 
 const EntryPage = ({ params }) => {
   return <div>{params.id}</div>;
