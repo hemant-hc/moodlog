@@ -11,7 +11,6 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className="w-screen h-screen relative">
       <aside className="absolute left-0 top-0 h-full w-[200px] border-r border-black/10">
-        <div>Mood</div>
         <ul>
           {links.map((link) => (
             <li key={link.href} className="px-2 py-6 text-xl">
