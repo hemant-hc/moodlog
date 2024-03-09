@@ -24,9 +24,7 @@ const EntryPage = async ({ params }) => {
 
   return (
     <div className="h-full w-full">
-      <div>
-        <Editor entry={entry} />
-      </div>
+      <Editor entry={entry} />
     </div>
   );
 };

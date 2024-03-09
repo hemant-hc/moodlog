@@ -21,6 +21,7 @@ const CustomTooltip = ({ payload, label, active }) => {
         ></div>
         <p className="label text-sm text-black/30">{dateLabel}</p>
         <p className="intro text-xl uppercase">{analysis.mood}</p>
+        <p className="intro">{`Sentiment: ${analysis.sentimentScore}`}</p>
       </div>
     );
   }

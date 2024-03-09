@@ -33,31 +33,30 @@ const Editor = ({ entry }) => {
       <div className="col-span-2">
         {isLoading && <div>...loading</div>}
         <textarea
-          className="w-full h-full p-8 text-xl outline-none"
+          className="w-full h-full p-8 text-md outline-none"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
       </div>
-      <div>
-        <div className="border-l border-black/10">
-          <div className="px-6 py-10" style={{ backgroundColor: color }}>
-            <h2 className="text-2xl">Analysis</h2>
-          </div>
-          <div>
-            <ul>
-              {analysisData.map((item) => (
-                <li
-                  key={item.name}
-                  className="flex items-center justify-between border-t border-black/10"
-                >
-                  <span className="text-lg font-semibold px-2 py-4">
-                    {item.name}
-                  </span>
-                  <span>{item.value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+      <div className="border-l border-black/10">
+        <div className="px-6 py-10" style={{ backgroundColor: color }}>
+          <h2 className="text-2xl font-semibold">Analysis</h2>
+        </div>
+        <div>
+          <ul>
+            {analysisData.map((item) => (
+              <li
+                key={item.name}
+                className="flex items-center border-t border-black/10"
+              >
+                <span className="text-lg font-medium px-2 py-4 ml-2 w-1/4">
+                  {item.name}
+                </span>
+                <span className="px-2 py-4 mr-2 w-3/4">{item.value}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
