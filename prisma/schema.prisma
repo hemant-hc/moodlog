@@ -9,13 +9,14 @@ datasource db {
 }
 
 model User {
-  id        String         @id @default(uuid())
-  email     String         @unique
-  clerkId   String         @unique
-  name      String?
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
-  entries   JournalEntry[]
+  id            String          @id @default(uuid())
+  email         String          @unique
+  clerkId       String          @unique
+  name          String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  entries       JournalEntry[]
+  EntryAnalysis EntryAnalysis[]
 }
 
 model JournalEntry {
@@ -39,11 +40,16 @@ model EntryAnalysis {
   entryId String
   entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
 
-  mood     String  @db.Text
-  negative Boolean
-  summary  String  @db.Text
-  subject  String
-  color    String  @default("#0101fe") @db.Text
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  mood           String  @db.Text
+  negative       Boolean
+  summary        String  @db.Text
+  subject        String
+  color          String  @default("#0101fe") @db.Text
+  sentimentScore Float   @default(0)
 
   @@unique([entryId])
+  @@index([userId])
 }
