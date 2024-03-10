@@ -7,7 +7,6 @@ export const updateEntry = async (id, content) => {
       body: JSON.stringify({ content }),
     })
   );
-  console.log("hi");
 
   if (res.ok) {
     const data = await res.json();
