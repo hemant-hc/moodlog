@@ -3,13 +3,14 @@
 import { updateEntry } from "@/utils/api";
 import { useAutosave } from "react-autosave";
 import { useState } from "react";
+import { IEntry } from "@/interface/entry";
 
-const Editor = ({ entry }) => {
+const Editor = ({ entry }: any) => {
   const [value, setValue] = useState(entry.content);
   const [isLoading, setIsLoading] = useState(false);
   const [analysis, setAnalysis] = useState(entry.analysis);
 
-  const { mood, summary, subject, negative, color } = analysis;
+  const { mood, summary, subject, negative, color } = analysis ?? {};
 
   const analysisData = [
     { name: "Summary", value: summary },
@@ -22,14 +23,14 @@ const Editor = ({ entry }) => {
     data: value,
     onSave: async (_value) => {
       setIsLoading(true);
-      const data = await updateEntry(entry.id, _value);
+      const data = await updateEntry(entry.id as string, _value as string);
       setAnalysis(data.analysis);
       setIsLoading(false);
     },
   });
 
   return (
-    <div className="w-full h-full grid grid-cols-3 bg-bl-light1 text-white">
+    <div className="w-full h-full grid grid-cols-3 bg-bl-light1">
       <div className="col-span-2">
         {isLoading && <div>...loading</div>}
         <textarea

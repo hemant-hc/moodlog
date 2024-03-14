@@ -1,18 +1,14 @@
 "use client";
 
 import { askQuestion } from "@/utils/api";
-import { ChangeEvent, useState } from "react";
+import { FormEventHandler, useState } from "react";
 
 const Question = () => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState();
 
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -26,7 +22,7 @@ const Question = () => {
     <div>
       <form onSubmit={handleSubmit} className="px-2 py-2">
         <input
-          onChange={onChange}
+          onChange={(e) => setValue(e.target.value)}
           value={value}
           type="text"
           placeholder="Ask a question"

@@ -6,6 +6,7 @@ import { Document } from "langchain/document";
 import { loadQARefineChain } from "langchain/chains";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
+import { TEntries } from "@/interface/entry";
 
 const parser = StructuredOutputParser.fromZodSchema(
   z.object({
@@ -32,7 +33,7 @@ const parser = StructuredOutputParser.fromZodSchema(
   })
 );
 
-const getPrompt = async (content) => {
+const getPrompt = async (content: string) => {
   const format_instructions = parser.getFormatInstructions();
   const prompt = new PromptTemplate({
     template:
@@ -48,7 +49,7 @@ const getPrompt = async (content) => {
   return input;
 };
 
-export const analyze = async (content) => {
+export const analyze = async (content: string) => {
   const input = await getPrompt(content);
   const model = new OpenAI({ temperature: 0, modelName: "gpt-3.5-turbo" });
   const result = await model.call(input);
@@ -60,7 +61,7 @@ export const analyze = async (content) => {
   }
 };
 
-export const qa = async (question, entries) => {
+export const qa = async (question: string, entries: TEntries) => {
   const docs = entries.map((entry) => {
     return new Document({
       pageContent: entry.content,
