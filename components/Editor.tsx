@@ -29,26 +29,26 @@ const Editor = ({ entry }) => {
   });
 
   return (
-    <div className="w-full h-full grid grid-cols-3">
+    <div className="w-full h-full grid grid-cols-3 bg-bl-light1 text-white">
       <div className="col-span-2">
         {isLoading && <div>...loading</div>}
         <textarea
-          className="w-full h-full p-8 text-md outline-none"
+          className="w-full h-full p-8 text-md bg-bl-dark outline-none"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
       </div>
 
-      <div className="border-l border-black/10">
+      <div className="border-l border-white/30">
         <div className="px-6 py-10" style={{ backgroundColor: color }}>
-          <h2 className="text-2xl font-semibold">Analysis</h2>
+          <h2 className="text-2xl text-black font-semibold">Analysis</h2>
         </div>
         <div>
           <ul>
             {analysisData.map((item) => (
               <li
                 key={item.name}
-                className="flex items-center border-t border-black/10"
+                className="flex items-center border-t border-white/30"
               >
                 <span className="text-lg font-medium px-2 py-4 ml-2 w-1/4">
                   {item.name}

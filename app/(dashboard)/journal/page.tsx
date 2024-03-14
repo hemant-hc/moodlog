@@ -23,8 +23,8 @@ const JournalPage = async () => {
   const entries = await getEntries();
 
   return (
-    <div className="p-10 bg-zinc-400/10">
-      <div className="bg-white p-4 rounded-lg shadow-md w-1/2">
+    <div className="p-10 bg-bl-dark overflow-">
+      <div className="bg-bl-light1 text-white p-4 rounded-lg shadow-md w-1/2">
         <div className="p-2">
           Ask questions regarding your journal entries here!
         </div>

@@ -6,7 +6,7 @@ const EntryCard = ({ entry }) => {
       ? `${contentWords.slice(0, 15).join(" ")} ...`
       : entry.content;
   return (
-    <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div className="divide-y divide-gray-600 overflow-hidden rounded-lg bg-bl-light1 text-white shadow">
       <div className="px-4 py-5">{date}</div>
       <div className="px-4 py-5">Preview: {contentPreview}</div>
     </div>
