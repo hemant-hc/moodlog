@@ -14,9 +14,12 @@ const NewEntryCard = () => {
 
   return (
     <div className="cursor-pointer overflow-hidden rounded-lg bg-bl-light1 shadow">
-      <button className="bg-blue-500 p-3 text-lg" onClick={handleOnClick}>
-        <span className="inline-flex px-2">
-          Add New <AiOutlinePlus className="ml-2 mt-1" size={18} />
+      <button
+        className="bg-blue-500 sm:p-3 p-1 sm:text-lg text-base"
+        onClick={handleOnClick}
+      >
+        <span className="inline-flex sm:px-2 px-1">
+          Add New <AiOutlinePlus className="sm:ml-2 ml-1 mt-1" size={18} />
         </span>
       </button>
     </div>

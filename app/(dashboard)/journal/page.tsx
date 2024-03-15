@@ -32,10 +32,10 @@ const JournalPage = async () => {
       </div>
 
       <div className="flex items-center justify-between">
-        <div className="text-3xl">My Journals</div>
+        <div className="md:text-3xl sm:text-2xl text-xl">My Journals</div>
         <NewEntryCard />
       </div>
-      <div className="grid grid-cols-3 gap-4 pt-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 pt-4">
         {entries.map((entry) => (
           <Link href={`journal/${entry.id}`} key={entry.id}>
             <EntryCard key={entry.id} entry={entry} />
