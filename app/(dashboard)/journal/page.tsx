@@ -30,7 +30,6 @@ const JournalPage = async () => {
         <div className="text-5xl pb-2">Hello, {user?.firstName}</div>
         <div className="text-slate-400 text-xl mb-10">How was your day?</div>
       </div>
-
       <div className="flex items-center justify-between">
         <div className="md:text-3xl sm:text-2xl text-xl">My Journals</div>
         <NewEntryCard />
