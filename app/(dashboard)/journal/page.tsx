@@ -1,6 +1,5 @@
 import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
-import Question from "@/components/Question";
 import { getUserByClerkID } from "@/utils/auth";
 import { prisma } from "@/utils/db";
 import { currentUser } from "@clerk/nextjs";
@@ -8,6 +7,7 @@ import Link from "next/link";
 
 const getEntries = async () => {
   const user = await getUserByClerkID();
+  console.log("hi change in entries!", user);
   const entries = await prisma.journalEntry.findMany({
     where: {
       userId: user.id,

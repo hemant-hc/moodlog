@@ -27,8 +27,9 @@ const History = async () => {
 
   return (
     <div className="h-full w-full p-8 bg-bl-light">
-      <div className="text-xl mb-8">{`Average Sentiment: ${avg}`}</div>
-      <div className="h-full w-full">
+      <div className="text-xl mb-2">{`Average Sentiment Score: ${avg}`}</div>
+      <div className="text-slate-400 text-xl mb-8">{`Sentiment Score is calculated based on your journals on a scale from -10 to 10`}</div>
+      <div className="h-[80%] w-full">
         <HistoryChart data={analyses} />
       </div>
     </div>

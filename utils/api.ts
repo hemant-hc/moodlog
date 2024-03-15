@@ -27,6 +27,15 @@ export const createNewEntry = async () => {
   }
 };
 
+export const deleteEntry = async (id: string) => {
+  const res = await fetch(
+    new Request(createURL(`/api/journal`), {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+    })
+  );
+};
+
 export const askQuestion = async (question: string) => {
   const res = await fetch(
     new Request(createURL("/api/question"), {

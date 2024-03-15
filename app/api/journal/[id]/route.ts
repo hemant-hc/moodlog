@@ -1,11 +1,19 @@
+import { IAnalysisCreate } from "@/interface/analysis";
 import { analyze } from "@/utils/ai";
 import { getUserByClerkID } from "@/utils/auth";
 import { prisma } from "@/utils/db";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
-export const PATCH = async (request: Request, { params }) => {
+interface PATCHParams {
+  params: {
+    id: string;
+  };
+}
+
+export const PATCH = async (request: Request, { params }: PATCHParams) => {
   const { content } = await request.json();
+  console.log("params", params.id);
   const user = await getUserByClerkID();
   const updatedEntry = await prisma.journalEntry.update({
     where: {
@@ -19,16 +27,16 @@ export const PATCH = async (request: Request, { params }) => {
     },
   });
 
-  const analysis = await analyze(updatedEntry.content);
+  const analysis = (await analyze(updatedEntry.content)) as IAnalysisCreate;
 
   const updated = await prisma.entryAnalysis.upsert({
     where: {
       entryId: updatedEntry.id,
     },
     create: {
+      ...analysis,
       userId: user.id,
       entryId: updatedEntry.id,
-      ...analysis,
     },
     update: analysis,
   });
