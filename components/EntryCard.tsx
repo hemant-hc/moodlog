@@ -13,7 +13,7 @@ const EntryCard = ({ entry }: EntryCardProps) => {
       : entry.content;
 
   return (
-    <div className="overflow-hidden rounded-lg bg-bl-light1 shadow">
+    <div className="overflow-hidden h-40 w-120 rounded-lg bg-bl-light1 shadow">
       <div className="px-4 pt-5 text-slate-400 text-sm">{date}</div>
       <div className="px-4 py-5">{contentPreview}</div>
     </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 import { IoMdHome, IoMdJournal } from "react-icons/io";
-import { RiHistoryFill } from "react-icons/ri";
+import { RiHistoryFill, RiQuestionnaireFill } from "react-icons/ri";
 
 const DashboardLayout = ({ children }: PropsWithChildren<{}>) => {
   return (
@@ -28,6 +28,11 @@ const DashboardLayout = ({ children }: PropsWithChildren<{}>) => {
           <li className="flex justify-center py-3">
             <Link href="/history">
               <RiHistoryFill size={28} />
+            </Link>
+          </li>
+          <li className="flex justify-center py-3">
+            <Link href="/questions">
+              <RiQuestionnaireFill size={28} />
             </Link>
           </li>
         </ul>
