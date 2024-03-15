@@ -42,12 +42,6 @@ const JournalPage = async () => {
           </Link>
         ))}
       </div>
-      <div className="bg-bl-light1 p-4 rounded-lg shadow-md w-1/2">
-        <div className="p-2">
-          Ask questions regarding your journal entries here!
-        </div>
-        <Question />
-      </div>
     </div>
   );
 };

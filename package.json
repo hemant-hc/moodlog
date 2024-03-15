@@ -17,6 +17,7 @@
     "react-autosave": "^0.4.4",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "react-spinners": "^0.13.8",
     "recharts": "^2.12.2",
     "zod": "^3.22.4"
   },

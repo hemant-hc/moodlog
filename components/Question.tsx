@@ -2,6 +2,7 @@
 
 import { askQuestion } from "@/utils/api";
 import { FormEventHandler, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const Question = () => {
   const [value, setValue] = useState("");
@@ -37,7 +38,7 @@ const Question = () => {
         </button>
       </form>
       <div className="m-4">
-        {loading && <div>...loading</div>}
+        {loading && <ClipLoader color="white" size={18} />}
         {response && <div>{response}</div>}
       </div>
     </div>

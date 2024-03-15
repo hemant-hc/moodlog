@@ -3,7 +3,7 @@
 import { updateEntry } from "@/utils/api";
 import { useAutosave } from "react-autosave";
 import { useState } from "react";
-import { IEntry } from "@/interface/entry";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Editor = ({ entry }: any) => {
   const [value, setValue] = useState(entry.content);
@@ -32,7 +32,6 @@ const Editor = ({ entry }: any) => {
   return (
     <div className="w-full h-full grid grid-cols-3 bg-bl-light1">
       <div className="col-span-2">
-        {isLoading && <div>...loading</div>}
         <textarea
           className="w-full h-full p-8 text-md bg-bl-dark outline-none"
           value={value}
@@ -54,7 +53,14 @@ const Editor = ({ entry }: any) => {
                 <span className="text-lg font-medium px-2 py-4 ml-2 w-1/4">
                   {item.name}
                 </span>
-                <span className="px-2 py-4 mr-2 w-3/4">{item.value}</span>
+                <span className="px-2 py-4 mr-2 w-3/4">
+                  {" "}
+                  {isLoading ? (
+                    <ClipLoader color="white" size={18} />
+                  ) : (
+                    item.value
+                  )}
+                </span>
               </li>
             ))}
           </ul>
