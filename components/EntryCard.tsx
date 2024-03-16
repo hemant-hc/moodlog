@@ -25,7 +25,7 @@ const EntryCard = ({ entry }: EntryCardProps) => {
   };
 
   return (
-    <div className="overflow-hidden h-40 w-120 rounded-lg bg-bl-light1 shadow">
+    <div className="overflow-hidden sm:h-40 sm:w-120 h-50 rounded-lg bg-bl-light1 shadow">
       <div className="flex justify-between">
         <div className="px-4 pt-5 text-slate-400 text-sm">{date}</div>
         <button
@@ -35,7 +35,7 @@ const EntryCard = ({ entry }: EntryCardProps) => {
           <MdDelete />
         </button>
       </div>
-      <div className="px-4 py-5">{contentPreview}</div>
+      <div className="sm:text-base text-sm px-4 py-5">{contentPreview}</div>
     </div>
   );
 };

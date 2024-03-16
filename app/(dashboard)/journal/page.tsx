@@ -5,9 +5,9 @@ import { prisma } from "@/utils/db";
 import { currentUser } from "@clerk/nextjs";
 import Link from "next/link";
 
-const getEntries = async () => {
+export const getEntries = async () => {
   const user = await getUserByClerkID();
-  console.log("hi change in entries!", user);
+
   const entries = await prisma.journalEntry.findMany({
     where: {
       userId: user.id,
@@ -34,7 +34,7 @@ const JournalPage = async () => {
         <div className="md:text-3xl sm:text-2xl text-xl">My Journals</div>
         <NewEntryCard />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 pt-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-4 gap-6 pt-6">
         {entries.map((entry) => (
           <Link href={`journal/${entry.id}`} key={entry.id}>
             <EntryCard key={entry.id} entry={entry} />

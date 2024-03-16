@@ -13,7 +13,7 @@ interface PATCHParams {
 
 export const PATCH = async (request: Request, { params }: PATCHParams) => {
   const { content } = await request.json();
-  console.log("params", params.id);
+
   const user = await getUserByClerkID();
   const updatedEntry = await prisma.journalEntry.update({
     where: {

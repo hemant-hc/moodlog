@@ -5,8 +5,10 @@ import { useAutosave } from "react-autosave";
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { IoIosArrowUp } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 const Editor = ({ entry }: any) => {
+  const router = useRouter();
   const [value, setValue] = useState(entry.content);
   const [isLoading, setIsLoading] = useState(false);
   const [analysis, setAnalysis] = useState(entry.analysis);
@@ -28,6 +30,7 @@ const Editor = ({ entry }: any) => {
       const data = await updateEntry(entry.id as string, _value as string);
       setAnalysis(data.analysis);
       setIsLoading(false);
+      router.refresh();
     },
   });
 
@@ -42,7 +45,7 @@ const Editor = ({ entry }: any) => {
       <div className="w-full h-full grid grid-cols-3 bg-bl-light1">
         <div id="editor" className="sm:col-span-2 col-span-3">
           <textarea
-            className="w-full h-full p-8 text-md bg-bl-dark outline-none"
+            className="w-full h-full p-8 text-base bg-bl-dark outline-none"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
