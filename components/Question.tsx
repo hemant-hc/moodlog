@@ -27,17 +27,17 @@ const Question = () => {
           value={value}
           type="text"
           placeholder="Ask a question"
-          className="border border-black/20 px-4 bg-slate-300 py-2 h-14 w-[80%] text-black text-lg rounded-lg"
+          className="border border-black/20 lg:px-4 sm:px-3 px-2 bg-slate-300 sm:py-2 py-1 sm:h-14 h-10 sm:w-[80%] w-[100%] text-black text-lg rounded-lg"
         />
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-400 px-4 ml-6 py-2 rounded-lg text-lg"
+          className="bg-blue-400 sm:px-4 px-2 sm:ml-6 sm:py-2 py-1 sm:mt-0 mt-2 rounded-lg text-lg"
         >
           Ask
         </button>
       </form>
-      <div className="m-4">
+      <div className="m-4 sm:text-base text-xs">
         {loading && <ClipLoader color="white" size={18} />}
         {response && <div>{response}</div>}
       </div>

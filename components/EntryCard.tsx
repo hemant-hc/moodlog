@@ -19,7 +19,6 @@ const EntryCard = ({ entry }: EntryCardProps) => {
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     await deleteEntry(entry.id);
-    console.log("hi");
   };
 
   return (
@@ -28,7 +27,7 @@ const EntryCard = ({ entry }: EntryCardProps) => {
         <div className="px-4 pt-5 text-slate-400 text-sm">{date}</div>
         <button
           onClick={handleDelete}
-          className="bg-red-400 p-2 text-lg m-3 rounded-md"
+          className="bg-zinc-600 hover:scale-110  hover:bg-red-400 p-1 text-lg m-3 rounded-md"
         >
           <MdDelete />
         </button>
