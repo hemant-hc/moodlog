@@ -3,12 +3,14 @@
 import { IEntry } from "@/interface/entry";
 import { deleteEntry } from "@/utils/api";
 import { MdDelete } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 type EntryCardProps = {
   entry: IEntry;
 };
 
 const EntryCard = ({ entry }: EntryCardProps) => {
+  const router = useRouter();
   const date = new Date(entry.createdAt).toDateString();
   const contentWords = entry.content.split(" ");
   const contentPreview =
@@ -19,6 +21,7 @@ const EntryCard = ({ entry }: EntryCardProps) => {
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     await deleteEntry(entry.id);
+    router.refresh();
   };
 
   return (
