@@ -4,7 +4,7 @@ import { updateEntry } from "@/utils/api";
 import { useAutosave } from "react-autosave";
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 const Editor = ({ entry }: any) => {
@@ -37,10 +37,10 @@ const Editor = ({ entry }: any) => {
   return (
     <div className="w-full h-full">
       <button
-        className={`absolute bottom-0 left-[50%] bg-blue-400 px-3 py-1 sm:hidden block`}
+        className={`fixed bottom-0 left-[50%] bg-blue-400 px-3 py-1 sm:hidden block`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <IoIosArrowUp />
+        {isOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
       </button>
       <div className="w-full h-full grid grid-cols-3 bg-bl-light1">
         <div id="editor" className="sm:col-span-2 col-span-3">
@@ -73,7 +73,7 @@ const Editor = ({ entry }: any) => {
                   <span className="text-base md:text-lg text-center lg:text-left lg:px-1 px-2 lg:py-4 md:pt-2 sm:pt-1 ml-2 lg:w-1/4">
                     {item.name}
                   </span>
-                  <span className="px-2 py-1 lg:py-4 md:py-2 sm:py-1 mr-2 w-full lg:text-left text-center lg:w-3/4">
+                  <span className="px-2 py-1 lg:py-4 md:py-2 sm:py-1 mr-2 w-full lg:text-left text-center lg:w-3/4 text-gray-200">
                     {" "}
                     {isLoading ? (
                       <ClipLoader color="white" size={18} />
