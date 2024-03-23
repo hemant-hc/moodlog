@@ -25,12 +25,12 @@ const EntryCard = ({ entry }: EntryCardProps) => {
   };
 
   return (
-    <div className="overflow-hidden sm:h-40 sm:w-120 h-50 rounded-lg bg-bl-light1 shadow">
+    <div className="overflow-hidden sm:h-40 sm:w-120 h-50 rounded-lg bg-bl-light1 shadow group">
       <div className="flex justify-between">
         <div className="px-4 pt-5 text-slate-400 text-sm">{date}</div>
         <button
           onClick={handleDelete}
-          className="bg-zinc-600 hover:scale-110  hover:bg-red-400 p-1 text-lg m-3 rounded-md"
+          className="bg-zinc-600 hover:scale-110 block sm:hidden sm:group-hover:block hover:bg-red-400 p-1 text-lg mt-3 mr-3 rounded-md"
         >
           <MdDelete />
         </button>
